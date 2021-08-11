@@ -1,0 +1,39 @@
+﻿Build started 3/7/2019 6:48:23 AM.
+     1>Project "G:\4-2\Computer Graphics\OpenGL\OpenGL_Visual_Studio\OpenGl\OpenGl.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt texture.cpp
+         texture.cpp
+     1>g:\4-2\computer graphics\opengl\opengl_visual_studio\opengl\texture.cpp(351): warning C4018: '<' : signed/unsigned mismatch
+     1>g:\4-2\computer graphics\opengl\opengl_visual_studio\opengl\texture.cpp(388): warning C4018: '<' : signed/unsigned mismatch
+     1>g:\4-2\computer graphics\opengl\opengl_visual_studio\opengl\texture.cpp(563): warning C4018: '<' : signed/unsigned mismatch
+     1>g:\4-2\computer graphics\opengl\opengl_visual_studio\opengl\texture.cpp(579): warning C4018: '<' : signed/unsigned mismatch
+     1>g:\4-2\computer graphics\opengl\opengl_visual_studio\opengl\texture.cpp(638): warning C4018: '<' : signed/unsigned mismatch
+     1>g:\4-2\computer graphics\opengl\opengl_visual_studio\opengl\texture.cpp(716): warning C4099: 'point' : type name first seen using 'class' now seen using 'struct'
+                 g:\4-2\computer graphics\opengl\opengl_visual_studio\opengl\texture.cpp(16) : see declaration of 'point'
+     1>g:\4-2\computer graphics\opengl\opengl_visual_studio\opengl\texture.cpp(914): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
+     1>g:\4-2\computer graphics\opengl\opengl_visual_studio\opengl\texture.cpp(1029): warning C4018: '<' : signed/unsigned mismatch
+     1>g:\4-2\computer graphics\opengl\opengl_visual_studio\opengl\texture.cpp(1038): warning C4018: '<' : signed/unsigned mismatch
+     1>g:\4-2\computer graphics\opengl\opengl_visual_studio\opengl\texture.cpp(1048): warning C4018: '<' : signed/unsigned mismatch
+     1>g:\4-2\computer graphics\opengl\opengl_visual_studio\opengl\texture.cpp(1058): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\program files (x86)\microsoft visual studio 12.0\vc\include\xutility(2132): warning C4996: 'std::_Copy_impl': Function call with parameters that may be unsafe - this call relies on the caller to check that the passed values are correct. To disable this warning, use -D_SCL_SECURE_NO_WARNINGS. See documentation on how to use Visual C++ 'Checked Iterators'
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\xutility(2113) : see declaration of 'std::_Copy_impl'
+                 g:\4-2\computer graphics\opengl\opengl_visual_studio\opengl\bitmap_image.hpp(98) : see reference to function template instantiation '_OutIt std::copy<unsigned char*,unsigned char*>(_InIt,_InIt,_OutIt)' being compiled
+                 with
+                 [
+                     _OutIt=unsigned char *
+         ,            _InIt=unsigned char *
+                 ]
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\xutility(2113) : see declaration of 'std::_Copy_impl'
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"G:\4-2\Computer Graphics\OpenGL\OpenGL_Visual_Studio\Debug\OpenGl.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"G:\4-2\Computer Graphics\OpenGL\OpenGL_Visual_Studio\Debug\OpenGl.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"G:\4-2\Computer Graphics\OpenGL\OpenGL_Visual_Studio\Debug\OpenGl.lib" /MACHINE:X86 Debug\texture.obj
+         OpenGl.vcxproj -> G:\4-2\Computer Graphics\OpenGL\OpenGL_Visual_Studio\Debug\OpenGl.exe
+       CustomBuildStep:
+         xcopy /Y "G:\4-2\Computer Graphics\OpenGL\OpenGL_Visual_Studio\OpenGl\OpenGL\DLL\glut32.dll" "G:\4-2\Computer Graphics\OpenGL\OpenGL_Visual_Studio\Debug\"
+         :VCEnd
+         G:\4-2\Computer Graphics\OpenGL\OpenGL_Visual_Studio\OpenGl\OpenGL\DLL\glut32.dll
+         1 File(s) copied
+     1>Done Building Project "G:\4-2\Computer Graphics\OpenGL\OpenGL_Visual_Studio\OpenGl\OpenGl.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.12

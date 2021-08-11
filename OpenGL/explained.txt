@@ -1,0 +1,108 @@
+void scan_convert() {
+    ifstream stage3;
+    stage3.open("stage3.txt");
+
+    color** pixels = new color*[screen_x];
+    double** zs = new double*[screen_x];
+    for (int i = 0; i < screen_x; i++) {
+        pixels[i] = new color[screen_y];
+        for (int j = 0; j < screen_y; j++) {
+            pixels[i][j] = backgroud;
+        }
+        zs[i] = new double[screen_y];
+        for (int j = 0; j < screen_y; j++) {
+            zs[i][j] = +20; // a very large value intended as +INFINITY
+        }
+    }
+
+    // perform scan conversion, populate the 2D array pixels
+    // the array zs is the z-buffer.
+    for (int i = 0; i < n_inp; i += 3) {
+        homogeneous_point points[3];
+	points <- input 3 triangle points 
+	sort the points with decending order of y        
+	color cur_color = colors[i / 3];
+	
+        double delta_y = 2.0 / screen_y; // how much one pixel of the main screen is in our 2x2 screen
+        double delta_x = 2.0 / screen_x;
+
+	double start_y =points[0].y;
+        if(points[0].y > 1.0)  start_y=1.0; //if the top point is out of top boundary 
+        
+	for(y= start_y; y<=points[1].y;y= y - delta_y){
+			if( y == -1) break; // reached the bottom boundary so stop scanning
+			
+            double xa = intersept(points[0].x,points[1].x, points[0].y, points[1].y, y);// the func of finding interception, x1 - (x1 - x2)*(y1 - y) / (y1 - y2); 
+            double xb = intersept(points[0].x,points[2].x, points[0].y, points[2].y, y);
+            double za = intersept(points[0].z,points[1].z, points[0].y, points[1].y, y);
+            double zb = intersept(points[0].z,points[2].z, points[0].y, points[2].y, y);
+			//refer to slide 22 of HSR think points[0],points[1],points[2] as z1,z2,z3
+
+            if (xb < xa) { // i assummed xa is on the left if this not true we need to swap
+                swap(xa,xb);
+				swap(za,zb);
+
+            }
+
+            if (xb < -1 && xa > 1) { // this is to check if the triangle is cmpletely out of the boundary 
+				continue; // nothing is executed afer this, and we go to next iteration
+			}
+            if(xa < -1)xa = -1; //boundary check
+            if(xb > 1)xb = 1; //boundary check
+            for (x = xa; x <= xb; x += delta_x) {
+                double zp = zb - (zb - za)*(xb - x) / (xb - xa);
+                int p_x = (int) ((x + 1) * screen_x / 2); // find the pixel positions
+                int p_y = (int) (screen_y - (y + 1) * screen_y / 2);
+                if (zs[p_x][p_y] >= zp + epsilon/*just a very small value maybe for smoothness reasons*/ ) {     // check if our point is infront or not if it is then we will be able to see it and we need to update otherwis not
+                    zs[p_x][p_y] = zp;
+                    pixels[p_x][p_y] = cur_color;
+                }
+            }
+
+  
+        }
+		start_y =points[1].y; // same thing is done for the other half of the triangle
+        if(points[0].y > 1.0)  start_y=1.0;
+		for(y= start_y; y<=points[1].y;y= y - delta_y){
+            //find xa,xb,za,zb accordingly
+			double xa = intersept(points[1].x,points[2].x, points[1].y, points[2].y, y);// the func of finding interception, x1 - (x1 - x2)*(y1 - y) / (y1 - y2); 
+            double xb = intersept(points[0].x,points[2].x, points[0].y, points[2].y, y);
+            double za = intersept(points[1].z,points[2].z, points[1].y, points[2].y, y);
+            double zb = intersept(points[0].z,points[2].z, points[0].y, points[2].y, y);
+            if (xb < xa) {
+                swap xa xb
+				swap za zb
+            }
+			
+
+			//rest is exactly like before
+            if (xb < -1 && xa > 1) { // this is to check if the triangle is cmpletely out of the boundary 
+				continue; // nothing is executed afer this, and we go to next iteration
+			}
+            if(xa < -1)xa = -1; //boundary check
+            if(xb > 1)xb = 1; //boundary check
+            for (x = xa; x <= xb; x += delta_x) {
+                double zp = zb - (zb - za)*(xb - x) / (xb - xa);
+                int p_x = (int) ((x + 1) * screen_x / 2); // find the pixel positions
+                int p_y = (int) (screen_y - (y + 1) * screen_y / 2);
+                if (zs[p_x][p_y] >= zp + epsilon/*just a very small value maybe for smoothness reasons*/ ) {     // check if our point is infront or not if it is then we will be able to see it and we need to update otherwis not
+                    zs[p_x][p_y] = zp;
+                    pixels[p_x][p_y] = cur_color;
+                }
+            }
+
+
+    }
+
+    // the following code generates a bmp image. do not change this.
+    bitmap_image image(screen_x, screen_y);
+    for (int x = 0; x < screen_x; x++) {
+        for (int y = 0; y < screen_y; y++) {
+            image.set_pixel(x, y, pixels[x][y].r, pixels[x][y].g, pixels[x][y].b);
+        }
+    }
+    image.save_image("out.bmp");
+
+    // free the dynamically allocated memory
+
+}

@@ -1,0 +1,39 @@
+# depslib dependency file v1.0
+1542138827 source:z:\media\himel\media1\4-2\opengl\opengl_codeblocks\main.cpp
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<windows.h>
+	<glut.h>
+
+1392007564 
+
+1392007564 z:\media\himel\media1\4-2\opengl\opengl_codeblocks\opengl\include\glut.h
+	<windows.h>
+	<GL/gl.h>
+	<GL/glu.h>
+
+1472447596 source:/media/himel/Media1/4-2/OpenGL/OpenGL_CodeBlocks/main.cpp
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<windows.h>
+	<glut.h>
+
+1392007564 /media/himel/Media1/4-2/OpenGL/OpenGL_CodeBlocks/OpenGL/include/glut.h
+	<windows.h>
+	<GL/gl.h>
+	<GL/glu.h>
+
+1542139012 source:g:\4-2\opengl\opengl_codeblocks\main.cpp
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<windows.h>
+	<glut.h>
+
+1392007564 g:\4-2\opengl\opengl_codeblocks\opengl\include\glut.h
+	<windows.h>
+	<GL/gl.h>
+	<GL/glu.h>
+
